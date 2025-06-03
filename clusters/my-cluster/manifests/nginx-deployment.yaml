@@ -1,7 +1,9 @@
+cat <<EOF > clusters/my-cluster/manifests/nginx-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-demo
+  namespace: default  # <-- Add this line
 spec:
   replicas: 2
   selector:
@@ -17,3 +19,4 @@ spec:
         image: nginx:1.25
         ports:
         - containerPort: 80
+
